@@ -6,10 +6,12 @@ import cucumber.api.java.en.When;
 import framwork.pages.Home;
 import framwork.pages.Register;
 import framwork.utility.BrowserUtility;
+import framwork.utility.DatabaseReader;
 import framwork.utility.PropertyFileReader;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
 import java.util.Properties;
 
 public class RegisterInIMDb {
@@ -20,6 +22,7 @@ public class RegisterInIMDb {
     String emailId="Kanishka.kaushi@gmail.com";
     String Password="ABC123";
     String RePassword="ABC123";
+    DatabaseReader dbreader=new DatabaseReader();
 
     @Given("^Sing up page should be load successfully$")
     public void clickSingUp() throws Exception
@@ -39,7 +42,7 @@ public class RegisterInIMDb {
     @When("^Enter Email$")
     public void enterEmailAddress()
     {
-        new Register(driver).enteremail(emailId);
+        new Register(driver).enteremail(dbreader.readExcel("D:\\imdbProject\\DAO\\","Register","Sheet1"));
     }
     @When("^Enter Password and re enter password$")
     public void enterPassword()

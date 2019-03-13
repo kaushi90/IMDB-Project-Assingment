@@ -10,7 +10,7 @@ import java.io.IOException;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DatabaseReader {
-    public void readExcel(String filePath,String fileName,String sheetName) throws IOException {
+    public void readExcel(String filePath,String fileName,String sheetName)  {
         File file =    new File("D:\\imdbProject\\DAO\\"+"Register");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook registeremails = null;
